@@ -1,1 +1,0 @@
-# SPLAB-Coruian-Aurel-Ionut
