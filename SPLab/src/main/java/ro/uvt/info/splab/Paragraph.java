@@ -1,6 +1,6 @@
 package ro.uvt.info.splab;
 
-public class Paragraph implements TextElement {
+public class Paragraph implements TextElement, Visitee {
     private String text;
     private AlignStrategy alignStrategy;
 
@@ -9,8 +9,21 @@ public class Paragraph implements TextElement {
         this.alignStrategy = new AlignLeft();
     }
 
+    @Override
+    public void accept(Visitor v) {
+        v.visitParagraph(this);
+    }
+
     public void setAlignStrategy(AlignStrategy strategy) {
         this.alignStrategy = strategy;
+    }
+
+    public AlignStrategy getAlignStrategy(){
+        return alignStrategy;
+    }
+
+    public String getText(){
+        return text;
     }
 
     public void add(int index, TextElement element) {
@@ -23,14 +36,5 @@ public class Paragraph implements TextElement {
 
     public void remove(TextElement element) {
         throw new UnsupportedOperationException("You cannot do that");
-    }
-
-    public void print() {
-        System.out.println("Paragraph: " + text);
-    }
-
-    public void print(int lineLength) {
-        String alignedText = alignStrategy.render("Paragraph: " + text, lineLength);
-        System.out.println(alignedText);
     }
 }

@@ -1,4 +1,4 @@
-package ro.uvt.info.splab.lab6;
+package ro.uvt.info.splab.Services;
 
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;

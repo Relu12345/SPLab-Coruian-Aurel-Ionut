@@ -3,8 +3,7 @@ package ro.uvt.info.splab;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import ro.uvt.info.splab.lab6.*;
+import ro.uvt.info.splab.Services.*;
 
 @SpringBootApplication
 public class SpLabApplication {

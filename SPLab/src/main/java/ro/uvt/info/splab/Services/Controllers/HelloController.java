@@ -1,4 +1,4 @@
-package ro.uvt.info.splab.lab6.Controllers;
+package ro.uvt.info.splab.Services.Controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.context.ApplicationContext;
-import ro.uvt.info.splab.lab6.ClientComponent;
-import ro.uvt.info.splab.lab6.SingletonComponent;
-import ro.uvt.info.splab.lab6.TransientComponent;
+import ro.uvt.info.splab.Services.ClientComponent;
+import ro.uvt.info.splab.Services.SingletonComponent;
+import ro.uvt.info.splab.Services.TransientComponent;
 
 @RestController
 @RequestMapping("/")
