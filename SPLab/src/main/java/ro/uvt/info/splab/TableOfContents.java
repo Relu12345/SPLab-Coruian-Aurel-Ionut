@@ -16,11 +16,4 @@ public class TableOfContents implements TextElement {
     public void remove(TextElement element) {
         throw new UnsupportedOperationException("You cannot do that");
     }
-
-    public void print() {
-        System.out.println("Table of Contents:");
-        for (TextElement entry : entries) {
-            entry.print();
-        }
-    }
 }
