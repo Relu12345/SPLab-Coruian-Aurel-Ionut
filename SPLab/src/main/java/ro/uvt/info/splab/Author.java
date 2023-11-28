@@ -1,8 +1,11 @@
 package ro.uvt.info.splab;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 public class Author {
     private String name;
 
+    @JsonCreator
     public Author(String name) {
         this.name = name;
     }
