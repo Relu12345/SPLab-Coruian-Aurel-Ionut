@@ -1,15 +1,30 @@
 package ro.uvt.info.splab;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Entity
+@NoArgsConstructor(force = true)
 public class Book implements Visitee {
-    private String title;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String title;
+
+    @ManyToMany
     private List<Author> authors = new ArrayList<>();
-    private List<TextElement> contents = new ArrayList<>();
+
+    @OneToMany
+    @JoinColumn(name = "book_id")
+    private final List<ConcreteTextElement> contents = new ArrayList<>();
 
     @JsonCreator
     public Book(String title) {
@@ -20,32 +35,16 @@ public class Book implements Visitee {
         authors.add(author);
     }
 
-    public void addContent(TextElement content) {
+    public void addContent(ConcreteTextElement content) {
         contents.add(content);
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public List<Author> getAuthors() {
-        return authors;
-    }
-
-    public List<TextElement> getContents() {
-        return contents;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     @Override
     public void accept(Visitor v) {
         v.visitBook(this);
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
